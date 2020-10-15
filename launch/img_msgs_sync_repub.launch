@@ -1,0 +1,16 @@
+<?xml version="1.0"?>
+<launch>
+
+    <arg name="cam0_topic"     default="/t265/fisheye1/image_raw" />
+    <arg name="cam1_topic"     default="/t265/fisheye2/image_raw" />
+    <arg name="new_pub_hz"     default="5" />
+    <arg name="sync_threshold" default="0.003" />
+
+    <node name="img_msgs_sync_repub_node" pkg="img_msgs_sync_repub" type="img_msgs_sync_repub" output="screen">
+        <param name="cam0_topic"     type="str"    value="$(arg cam0_topic)" />
+        <param name="cam1_topic"     type="str"    value="$(arg cam1_topic)" />
+        <param name="new_pub_hz"     type="double" value="$(arg new_pub_hz)" />
+        <param name="sync_threshold" type="double" value="$(arg sync_threshold)" />
+    </node>
+
+</launch>
